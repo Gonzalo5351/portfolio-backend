@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-pui4)@50t^0qt=l0(x@p_af4b8pig^hr*(0f=x7-rq0+6(*-*-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gonzalos-portfolio-backend.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
