@@ -21,4 +21,5 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),  # Initial page
+    path('proyectos/', views.project_list, name='lista_proyectos'),
 ]
