@@ -21,7 +21,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),  # Initial page
-    path('proyectos/', views.project_list, name='lista_proyectos'),
+    path('projects/', views.project_list, name='project_list'),
     path('contact/', views.contact, name='contact'),
     path('auth/', include('portfolio.urls_auth')),  # Authentication URL
     path('manage-projects/', views.manage_projects, name='manage_projects'),
