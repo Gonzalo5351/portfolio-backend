@@ -27,9 +27,23 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['gonzalos-portfolio-backend.onrender.com', 'localhost', '127.0.0.1']
 
+# Cookie for the secure CSRF token, only sent over HTTPS
 CSRF_COOKIE_SECURE = True
 
+# Secure session cookies, only sent over HTTPS
 SESSION_COOKIE_SECURE = True
+
+# Redirect all HTTP requests to HTTPS (important in production)
+SECURE_SSL_REDIRECT = True
+
+# Prevent session cookies from being accessed by JavaScript
+SESSION_COOKIE_HTTPONLY = True
+
+# Prevent CSRF token from being accessible by JavaScript
+CSRF_COOKIE_HTTPONLY = True
+
+# Protection against clickjacking attacks
+X_FRAME_OPTIONS = 'DENY'
 
 # Application definition
 
@@ -41,6 +55,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portfolio',
+    'sslserver',
+    
 ]
 
 MIDDLEWARE = [

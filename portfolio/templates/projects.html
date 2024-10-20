@@ -8,23 +8,23 @@
 </head>
 <body>
     <div class="container my-5">
-        <h1 class="text-center mb-4">My projects</h1>
+        <h1 class="text-center mb-4">My Projects</h1>
 
         <div class="row">
-            {% for proyecto in proyectos %}
+            {% for project in projects %}
             <div class="col-md-4 mb-3">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">{{ proyecto.titulo }}</h5>
-                        <p class="card-text">{{ proyecto.descripcion }}</p>
-                        <p><strong>Technologies:</strong> {{ proyecto.tecnologias }}</p>
-                        <a href="{{ proyecto.enlace }}" class="btn btn-primary" target="_blank">Ver proyecto</a>
-                        <p class="text-muted">Created in: {{ proyecto.fecha }}</p>
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text">{{ project.description }}</p>
+                        <p><strong>Technologies:</strong> {{ project.technologies }}</p>
+                        <a href="{{ project.link }}" class="btn btn-primary" target="_blank">View Project</a>
+                        <p class="text-muted">Created on: {{ project.date }}</p>
                     </div>
                 </div>
             </div>
             {% empty %}
-            <p>There are not disponibles projects.</p>
+            <p>There are no available projects.</p>
             {% endfor %}
         </div>
     </div>

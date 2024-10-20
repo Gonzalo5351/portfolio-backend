@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Proyecto
+from .models import Project
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -9,8 +9,8 @@ def home(request):
     return render(request, 'index.html')
 
 def project_list(request):
-    proyectos = Proyecto.objects.all()  # Recupera todos los proyectos de la base de datos
-    return render(request, 'proyectos.html', {'proyectos': proyectos})
+    projects = Project.objects.all()  # Recupera todos los proyectos de la base de datos
+    return render(request, 'projects.html', {'projects': projects})
 
 def contact(request):
     if request.method == 'POST':
@@ -45,7 +45,7 @@ def manage_projects(request):
 
 class ProjectForm(forms.ModelForm):
     class Meta:
-        model = Proyecto
+        model = Project
         fields = ['title', 'description', 'technologies', 'link', 'date']
 
 @login_required

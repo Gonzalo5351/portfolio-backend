@@ -9,9 +9,16 @@
 <body>
     <div class="container mt-5">
         <h1>Manage Projects</h1>
-        <ul>
+        <a href="#" class="btn btn-success mb-3">Add New Project</a>
+        <ul class="list-group">
             {% for project in projects %}
-            <li>{{ project.title }} - <a href="#">Edit</a> | <a href="#">Delete</a></li>
+            <li class="list-group-item">
+                <strong>{{ project.titulo }}</strong> - {{ project.tecnologias }}
+                <a href="#" class="btn btn-warning btn-sm">Edit</a>
+                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+            </li>
+            {% empty %}
+            <li class="list-group-item">No projects available.</li>
             {% endfor %}
         </ul>
     </div>
