@@ -1,21 +1,10 @@
-# .github/workflows/python-app.yml
-name: Django CI
-
-on:
-  push:
-    branches:
-      - master  # Cambia esta rama si usas otra
-  pull_request:
-    branches:
-      - master
-
 jobs:
   test:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        python-version: [3.10, 3.11]  # Puedes ajustar según las versiones de Python que quieras probar
+        python-version: [3.10, 3.11]  # Usa versiones de Python modernas y disponibles
 
     steps:
     - name: Checkout code
