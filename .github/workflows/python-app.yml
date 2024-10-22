@@ -1,10 +1,18 @@
+name: Django CI
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 jobs:
   test:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        python-version: [3.10, 3.11]  # Usa versiones de Python modernas y disponibles
+        python-version: [3.10, 3.11]  # Python versions
 
     steps:
     - name: Checkout code
