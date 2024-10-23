@@ -55,3 +55,5 @@ class ProjectViewsTest(TestCase):
         response = self.client.get(reverse('project_list'), follow=True) # Follow the redirect
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Test Project")
+
+#Only a coment for test github actions.
