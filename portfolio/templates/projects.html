@@ -18,6 +18,7 @@
                         <h5 class="card-title">{{ project.title }}</h5>
                         <p class="card-text">{{ project.description }}</p>
                         <p><strong>Technologies:</strong> {{ project.technologies }}</p>
+                        <a href="{% url 'project_detail' project.id %}" class="btn btn-primary">View Project</a>
                         <a href="{{ project.link }}" class="btn btn-primary" target="_blank">View Project</a>
                         <p class="text-muted">Created on: {{ project.date }}</p>
                     </div>
