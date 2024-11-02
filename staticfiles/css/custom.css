@@ -1,0 +1,36 @@
+/* Definir colores personalizados */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2ecc71;
+    --text-color: #333;
+    --background-color: #f4f4f9;
+    --button-color: #e74c3c;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.navbar {
+    background-color: var(--primary-color);
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+}
+
+.btn-primary {
+    background-color: var(--button-color);
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--button-color), 10%);
+}
