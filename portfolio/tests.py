@@ -52,7 +52,7 @@ class ProjectViewsTest(TestCase):
 
     def test_project_list_view(self):
         # Verificar que la vista de lista de proyectos devuelve un código 200
-        response = self.client.get(reverse('project_list'), follow=True) # Follow the redirect
+        response = self.client.get(reverse('home'), follow=True) # Follow the redirect
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Test Project")
 
