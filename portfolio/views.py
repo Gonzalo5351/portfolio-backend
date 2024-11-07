@@ -6,9 +6,11 @@ from django.contrib.auth.decorators import login_required
 from django import forms
 
 def home(request):
-    return render(request, 'index.html')
+    projects = Project.objects.all() # Recover all projects
+    return render(request, 'index.html', {'projects': projects})
 
 def project_list(request):
+    print("Entrando a la vista project_list")
     projects = Project.objects.all()  # Recupera todos los proyectos de la base de datos
     return render(request, 'projects.html', {'projects': projects})
 
