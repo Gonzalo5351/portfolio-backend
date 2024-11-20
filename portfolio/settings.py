@@ -26,10 +26,11 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "fallback-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-raw_allowed_hosts = os.getenv("ALLOWED_HOSTS", "")
-print(f"Raw ALLOWED_HOSTS from environment: {raw_allowed_hosts}")  # Debug adicional
-ALLOWED_HOSTS = raw_allowed_hosts.replace(" ", "").replace("=", "").split(",")
-print(f"Processed ALLOWED_HOSTS: {ALLOWED_HOSTS}")  # Debug procesado
+ALLOWED_HOSTS = [
+    "web-production-bcdbc.up.railway.app",
+    "localhost",
+    "127.0.0.1",
+]
 # Cookie for the secure CSRF token, only sent over HTTPS
 CSRF_COOKIE_SECURE = True
 
