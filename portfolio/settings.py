@@ -26,8 +26,10 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "fallback-key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "").replace(" ", "").split(",")
-print(f"ALLOWED_HOSTS: {ALLOWED_HOSTS}")
+raw_allowed_hosts = os.getenv("ALLOWED_HOSTS", "")
+print(f"Raw ALLOWED_HOSTS from environment: {raw_allowed_hosts}")  # Debug adicional
+ALLOWED_HOSTS = raw_allowed_hosts.replace(" ", "").replace("=", "").split(",")
+print(f"Processed ALLOWED_HOSTS: {ALLOWED_HOSTS}")  # Debug procesado
 # Cookie for the secure CSRF token, only sent over HTTPS
 CSRF_COOKIE_SECURE = True
 
