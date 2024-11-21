@@ -38,16 +38,18 @@ CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
 # Redirect all HTTP requests to HTTPS (important in production)
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 
 # Prevent session cookies from being accessed by JavaScript
-SESSION_COOKIE_HTTPONLY = True
+SESSION_COOKIE_HTTPONLY = False
 
 # Prevent CSRF token from being accessible by JavaScript
-CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_HTTPONLY = False
 
 # Protection against clickjacking attacks
 X_FRAME_OPTIONS = "DENY"
+
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Application definition
 
