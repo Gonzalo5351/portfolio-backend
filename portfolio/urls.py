@@ -20,6 +20,9 @@ from django.conf import settings
 from django.http import HttpResponse
 import os
 
+from mimetypes import guess_type
+from django.http import FileResponse, Http404
+
 from django.contrib import admin
 from django.urls import path, include
 from . import views
@@ -57,10 +60,15 @@ urlpatterns += [
 
 def debug_static_file(request, file_path):
     file_full_path = os.path.join(settings.STATIC_ROOT, file_path)
-    if os.path.exists(file_full_path):
-        with open(file_full_path, "r") as file:
-            return HttpResponse(file.read(), content_type="text/plain")
-    return HttpResponse("File not found.", status=404)
+    if not os.path.exists(file_full_path):
+        return HttpResponse("File not found.", status=404)
+
+    # Detectar el tipo MIME del archivo
+    mime_type, _ = guess_type(file_full_path)
+    try:
+        return FileResponse(open(file_full_path, "rb"), content_type=mime_type)
+    except Exception:
+        raise Http404("Unable to read the file.")
 
 
 urlpatterns += [
