@@ -17,6 +17,7 @@ Including another URLconf
 
 from django.http import JsonResponse
 from django.conf import settings
+from django.http import HttpResponse
 import os
 
 from django.contrib import admin
@@ -51,4 +52,17 @@ def staticfiles_debug_view(request):
 
 urlpatterns += [
     path("staticfiles-debug/", staticfiles_debug_view),
+]
+
+
+def debug_static_file(request, file_path):
+    file_full_path = os.path.join(settings.STATIC_ROOT, file_path)
+    if os.path.exists(file_full_path):
+        with open(file_full_path, "r") as file:
+            return HttpResponse(file.read(), content_type="text/plain")
+    return HttpResponse("File not found.", status=404)
+
+
+urlpatterns += [
+    path("debug-static/<str:file_path>/", debug_static_file),
 ]
