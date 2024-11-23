@@ -43,8 +43,7 @@ SECURE_SSL_REDIRECT = False
 # Prevent session cookies from being accessed by JavaScript
 SESSION_COOKIE_HTTPONLY = False
 
-# Prevent CSRF token from being accessible by JavaScript
-CSRF_COOKIE_HTTPONLY = False
+# Prevent CSRF token from being accessible by JavaScript CSRF_COOKIE_HTTPONLY = False
 
 # Protection against clickjacking attacks
 X_FRAME_OPTIONS = "DENY"
@@ -141,5 +140,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
